@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<!-- BOOTSTRAP -->
+<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}"/>
+<title>Pizzeria</title>
+</head>
+<body class="bg-dark">
+	<header>
+		<h1 class="text-danger my-5 text-center"> Pizzeria </h1>
+	</header>
+	<main class="container">
+		<table class="table text-light">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nome</th>
+		      <th scope="col">Descrizione</th>
+		      <th scope="col">Immagine</th>
+		      <th scope="col">Prezzo</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<tr th:if="${pizze.isEmpty()}">
+		    	<th scope="row" colspan="5" class="text-center"> Non ci sono pizze disponibili </th>
+		    </tr>
+		    <tr th:unless="${pizze.isEmpty()}" th:each = "pizza : ${pizze}">
+		      <th scope="row"> [[ ${pizza.id} ]]</th>
+		      <td>[[ ${pizza.name} ]]</td>
+		      <td>[[ ${pizza.description} ]]</td>
+		      <td>[[ ${pizza.image} ]]</td>
+		      <td>[[ ${pizza.price} ]] euro</td>
+		    </tr>
+		  </tbody>
+		</table>
+	</main>
+</body>
+</html>
