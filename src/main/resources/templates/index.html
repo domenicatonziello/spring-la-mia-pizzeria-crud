@@ -11,6 +11,10 @@
 		<h1 class="text-danger my-5 text-center"> Pizzeria </h1>
 	</header>
 	<main class="container">
+		<form class="d-flex justify-content-end mb-3" th:action="@{/}" method="POST">
+			<input class="me-2" type="text" name="name" th:value=${searchTerm}>
+			<button class="btn btn-secondary">Cerca</button>			
+		</form>	
 		<table class="table text-light">
 		  <thead>
 		    <tr>
@@ -19,7 +23,7 @@
 		      <th scope="col">Descrizione</th>
 		      <th scope="col">Immagine</th>
 		      <th scope="col">Prezzo</th>
-		      <th scope="col"> Dettagli</th>
+		      <th scope="col">Dettagli</th>
 		    </tr>
 		  </thead>
 		  <tbody>

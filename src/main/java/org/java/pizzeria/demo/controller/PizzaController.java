@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
@@ -25,6 +27,17 @@ public class PizzaController {
 		model.addAttribute("pizze", pizze);
 		return "index";
 	}
+	@PostMapping("/")
+	public String goToPizzaIndexResearch(Model model, @RequestParam(required = false) String name) {
+
+		List<Pizza> pizze = pizzarepo.findByNameContaining(name);
+
+		model.addAttribute("pizze", pizze);
+		model.addAttribute("searchTerm", name);
+
+		return "index";
+	}
+	
 	
 	@GetMapping("/pizza/{id}")
 	public String show(@PathVariable("id") int id, Model model ) {
