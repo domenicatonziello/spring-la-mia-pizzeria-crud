@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Pizza</title>
+</head>
+<body>
+	<header>
+		<h1>Pizza:</h1> 
+	</header>
+	<main class="container">
+		<div th:object="${pizza}" class="card" style="width: 18rem;">
+	  		<img th:src="*{image}" class="card-img-top" style="width: 100%;" th:alt="*{name}">
+	  		<div class="card-body">
+	    		<p class="card-text">Nome: [[ *{name} ]] </p>
+	    		<p class="card-text">Descrizione: [[ *{description} ]]</p>
+	    		<p class="card-text">Prezzo: [[ *{price} ]] euro</p>
+	  		</div>
+		</div>
+	</main>
+	
+</body>
+</html>
