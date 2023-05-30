@@ -16,18 +16,30 @@
 				<div class="col-6 mb-3">
 					<label>Nome</label>
 					<input type="text" name="name" th:value="*{name}">
+					<small style="color: red" th:if="${errors != null && errors.hasFieldErrors('name')}">
+						[[ ${errors.getFieldError('name').defaultMessage} ]]
+					</small>
 				</div>
 				<div class="col-6 mb-3">
 		  			<label>Url immagine</label>
 					<input type="text" name="image" th:value="*{image}">
+					<small style="color: red" th:if="${errors != null && errors.hasFieldErrors('image')}">
+						[[ ${errors.getFieldError('image').defaultMessage} ]]
+					</small>
 				</div>
 				<div class="col-6 mb-3">
 					<label>Prezzo</label>
-					<input type="number" step="0.01" name="price" th:value="*{price}">	
+					<input type="number" step="0.01" name="price" th:value="*{price}">
+					<small style="color: red" th:if="${errors != null && errors.hasFieldErrors('price')}">
+						[[ ${errors.getFieldError('price').defaultMessage} ]]
+					</small>	
 				</div>
 				<div class="col-6 mb-3">
 					<label>Descrizione</label>
 					<textarea rows="5" cols="150" name="description"> [[ *{description} ]]</textarea>
+					<small style="color: red" th:if="${errors != null && errors.hasFieldErrors('description')}">
+						[[ ${errors.getFieldError('description').defaultMessage} ]]
+					</small>
 				</div>
 				<button class="btn btn-primary">Modifica</button>						
 			</form>

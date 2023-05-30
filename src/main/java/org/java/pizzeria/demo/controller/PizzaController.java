@@ -103,7 +103,21 @@ public class PizzaController {
 		return "edit-form";
 	}
 	@PostMapping("pizza/update/{id}")
-	public String updatePizza(@PathVariable int id, @ModelAttribute Pizza pizza) {
+	public String updatePizza(  Model model, @PathVariable int id, @ModelAttribute @Valid Pizza pizza,
+								BindingResult bindingResult) {
+		
+			if (bindingResult.hasErrors()) {
+			
+			for (ObjectError err : bindingResult.getAllErrors()) 
+				System.err.println("error: " + err.getDefaultMessage());
+			
+			model.addAttribute("pizza", pizza);
+			model.addAttribute("errors", bindingResult);
+			
+			return "edit-form";
+		}
+		
+		
 
 		pizzarepo.save(pizza);
 

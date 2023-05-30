@@ -16,30 +16,30 @@
 				<div class="col-6 mb-3">
 					<label>Nome</label>
 					<input type="text" name="name" th:value="*{name}">
-					<label style="color: red" th:if="${errors != null && errors.hasFieldErrors('name')}">
+					<small style="color: red" th:if="${errors != null && errors.hasFieldErrors('name')}">
 						[[ ${errors.getFieldError('name').defaultMessage} ]]
-					</label>
+					</small>
 				</div>
 				<div class="col-6 mb-3">
 		  			<label>Url immagine</label>
 					<input type="text" name="image" th:value="*{image}">
-					<label style="color: red" th:if="${errors != null && errors.hasFieldErrors('image')}">
+					<small style="color: red" th:if="${errors != null && errors.hasFieldErrors('image')}">
 						[[ ${errors.getFieldError('image').defaultMessage} ]]
-					</label>
+					</small>
 				</div>
 				<div class="col-6 mb-3">
 					<label>Prezzo</label>
 					<input type="number" step="0.01" name="price" th:value="*{price}">	
-					<label style="color: red" th:if="${errors != null && errors.hasFieldErrors('price')}">
+					<small style="color: red" th:if="${errors != null && errors.hasFieldErrors('price')}">
 						[[ ${errors.getFieldError('price').defaultMessage} ]]
-					</label>
+					</small>
 				</div>
 				<div class="col-6 mb-3">
 					<label>Descrizione</label>
 					<textarea rows="5" cols="150" name="description"> [[*{description}]]</textarea>
-					<label style="color: red" th:if="${errors != null && errors.hasFieldErrors('description')}">
+					<small style="color: red" th:if="${errors != null && errors.hasFieldErrors('description')}">
 						[[ ${errors.getFieldError('description').defaultMessage} ]]
-					</label>
+					</small>
 				</div>
 				<button class="btn btn-primary">Crea</button>						
 			</form>
