@@ -32,5 +32,11 @@ public class PizzaService {
 		return pizzarepo.findByNameContaining(name);
 
 	}
+	
+	public void deleteById(int id) {
+
+		pizzarepo.deleteById(id);
+
+	}
 
 }

@@ -26,12 +26,12 @@
 		      <th scope="col">Descrizione</th>
 		      <th scope="col">Immagine</th>
 		      <th scope="col">Prezzo</th>
-		      <th scope="col">Dettagli</th>
+		      <th scope="col" colspan="4">Dettagli</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 		  	<tr th:if="${pizze.isEmpty()}">
-		    	<th scope="row" colspan="5" class="text-center"> Non ci sono pizze disponibili </th>
+		    	<th scope="row" colspan="8" class="text-center"> Non ci sono pizze disponibili </th>
 		    </tr>
 		    <tr th:unless="${pizze.isEmpty()}" th:each = "pizza : ${pizze}" th:object=${pizza}>
 		      <th scope="row"> [[ *{id} ]]</th>
@@ -40,6 +40,13 @@
 		      <td>[[ *{image} ]]</td>
 		      <td>[[ *{price} ]] euro</td>
 		      <td> <a class="btn btn-primary" th:href="@{/pizza/{id} (id=*{id})}">Dettagli</a> <td>
+		      <td> <a class="btn btn-warning" th:href="@{/pizza/{id} (id=*{id})}">Modifica</a> <td>
+		      <td> 
+		      	<form th:action="@{/pizza/delete/{id} (id=*{id})}" method="post">
+					<button th:href class="btn btn-danger">Elimina</button>
+				</form>
+			  </td>
+			  
 		    </tr>
 		  </tbody>
 		</table>

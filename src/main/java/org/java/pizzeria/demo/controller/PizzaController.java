@@ -63,4 +63,12 @@ public class PizzaController {
 
 		return "redirect:/";
 	}
+	
+	@PostMapping("pizza/delete/{id}")
+	public String deletePizza(@PathVariable("id") int id) {
+
+		pizzarepo.deleteById(id);
+
+		return "redirect:/";
+	}
 }
