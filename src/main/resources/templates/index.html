@@ -40,7 +40,7 @@
 		      <td>[[ *{image} ]]</td>
 		      <td>[[ *{price} ]] euro</td>
 		      <td> <a class="btn btn-primary" th:href="@{/pizza/{id} (id=*{id})}">Dettagli</a> <td>
-		      <td> <a class="btn btn-warning" th:href="@{/pizza/{id} (id=*{id})}">Modifica</a> <td>
+		      <td> <a class="btn btn-warning" th:href="@{/pizza/edit/{id} (id=*{id})}">Modifica</a> <td>
 		      <td> 
 		      	<form th:action="@{/pizza/delete/{id} (id=*{id})}" method="post">
 					<button th:href class="btn btn-danger">Elimina</button>
